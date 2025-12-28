@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سرویس اینترنت پرسرعت و ایمن</title>
-    
+    <title>دنیای بدون مرز | سرعت و امنیت</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -12,8 +13,8 @@
         @font-face {
             font-family: 'IRANSansWeb';
             src: url('fonts/IRANSansWeb.woff2') format('woff2'),
-                 url('fonts/IRANSansWeb.woff') format('woff'),
-                 url('fonts/IRANSansWeb.ttf') format('truetype');
+                url('fonts/IRANSansWeb.woff') format('woff'),
+                url('fonts/IRANSansWeb.ttf') format('truetype');
             font-weight: 400;
             font-style: normal;
             font-display: swap;
@@ -22,24 +23,35 @@
         @font-face {
             font-family: 'IRANSansWeb';
             src: url('fonts/IRANSansWeb_Bold.woff2') format('woff2'),
-                 url('fonts/IRANSansWeb_Bold.woff') format('woff'),
-                 url('fonts/IRANSansWeb_Bold.ttf') format('truetype');
+                url('fonts/IRANSansWeb_Bold.woff') format('woff'),
+                url('fonts/IRANSansWeb_Bold.ttf') format('truetype');
             font-weight: 700;
             font-style: normal;
             font-display: swap;
         }
 
-        /* --- Variables --- */
+        /* --- Variables (Light Theme - Frosty White) --- */
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            --text-main: #ffffff;
-            --text-muted: #cbd5e0;
-            --accent-color: #00d2ff;
-            --accent-glow: 0 0 20px rgba(0, 210, 255, 0.6);
+            /* Background Gradients */
+            --bg-gradient: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            --blob-1: #e0c3fc;
+            --blob-2: #8ec5fc;
+            --blob-3: #9be15d;
+
+            /* Glass Effect */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            --glass-blur: 20px;
+
+            /* Text Colors */
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+
+            /* Accents */
+            --primary-color: #0984e3;
+            --accent-gradient: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            --btn-text: #ffffff;
         }
 
         /* --- Reset & Base --- */
@@ -48,540 +60,510 @@
             padding: 0;
             box-sizing: border-box;
             outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'IRANSansWeb', sans-serif;
-            background-color: #0f172a;
+            background: var(--bg-gradient);
             color: var(--text-main);
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
         }
 
-        /* --- Animated Background --- */
-        .bg-animation {
+        /* --- Animated Background Blobs --- */
+        .bg-blobs {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #1a202c, #000000);
             overflow: hidden;
         }
 
-        .orb {
+        .blob {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
             opacity: 0.6;
-            animation: float 10s infinite ease-in-out alternate;
+            animation: float 20s infinite ease-in-out alternate;
         }
 
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: #764ba2;
-            top: -100px;
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--blob-1);
+            top: -200px;
             left: -100px;
-            animation-duration: 15s;
         }
 
-        .orb-2 {
+        .blob-2 {
             width: 500px;
             height: 500px;
-            background: #667eea;
-            bottom: -150px;
+            background: var(--blob-2);
+            bottom: -100px;
             right: -100px;
-            animation-duration: 20s;
+            animation-duration: 25s;
         }
 
-        .orb-3 {
+        .blob-3 {
             width: 300px;
             height: 300px;
-            background: #ff512f;
+            background: #ffeaa7;
             top: 40%;
-            left: 30%;
+            left: 40%;
             opacity: 0.4;
-            animation-duration: 12s;
+            animation-duration: 18s;
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 50px); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- Header / Hero --- */
-        header {
-            padding: 40px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo {
-            width: 60px;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-        }
-
+        /* --- Hero Section --- */
         .hero {
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 100px 20px 40px;
             position: relative;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #a5b4fc);
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #2d3436, #0984e3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
             animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 40px;
+            max-width: 650px;
+            margin-bottom: 50px;
             line-height: 1.8;
             animation: fadeInUp 1s ease-out 0.2s backwards;
         }
 
+        /* --- Buttons --- */
         .cta-group {
             display: flex;
             gap: 20px;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
             animation: fadeInUp 1s ease-out 0.4s backwards;
         }
 
         .btn {
-            padding: 14px 35px;
-            border-radius: 50px;
+            padding: 16px 40px;
+            border-radius: 16px;
             font-weight: 700;
             font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-glow {
-            background: var(--primary-gradient);
+            background: #0984e3;
+            background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+            color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
         }
 
-        .btn-glow:hover {
-            box-shadow: 0 0 30px rgba(118, 75, 162, 0.6);
-            transform: translateY(-3px) scale(1.05);
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-main);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
         }
 
-        /* --- Glass Cards (Features) --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-            padding: 0 20px;
-        }
-
-        .glass-card {
+        /* --- Glass Cards (Features & Pricing) --- */
+        .glass-panel {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 30px;
+            border-radius: 30px;
             box-shadow: var(--glass-shadow);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.85);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- Features Grid --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 20px 0 80px;
+        }
+
+        .feature-item {
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .glass-card:hover::before {
-            left: 100%;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255,255,255,0.3);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 25px;
-            background: var(--secondary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            background: rgba(9, 132, 227, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 24px;
+            margin: 0 auto 20px;
             display: inline-block;
         }
 
-        .glass-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
         }
 
-        .glass-card p {
+        .feature-item p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* --- Pricing Section --- */
-        .section-title {
+        .section-header {
             text-align: center;
-            margin: 80px 0 40px;
+            margin: 80px 0 50px;
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
         }
 
-        .pricing-container {
-            display: flex;
-            justify-content: center;
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            justify-content: center;
         }
 
         .pricing-card {
-            background: rgba(20, 20, 30, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 30px;
-            padding: 40px;
-            width: 350px;
-            text-align: center;
             position: relative;
-            transition: all 0.4s;
-            backdrop-filter: blur(20px);
-        }
-
-        .pricing-card.popular {
-            background: rgba(30, 30, 50, 0.8);
-            border: 1px solid var(--accent-color);
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
-            transform: scale(1.05);
-            z-index: 2;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px) scale(1.02);
-        }
-
-        .pricing-card.popular:hover {
-            transform: translateY(-10px) scale(1.08);
-        }
-
-        .plan-duration {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
-        .old-price {
-            font-size: 1.2rem;
-            color: #666;
-            text-decoration: line-through;
-            font-weight: 400;
+        .pricing-card.highlight {
+            border: 2px solid rgba(9, 132, 227, 0.3);
+            background: rgba(255, 255, 255, 0.8);
         }
 
-        .features-list {
-            margin-bottom: 30px;
-            text-align: right;
-        }
-
-        .features-list li {
-            margin-bottom: 12px;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .features-list li i {
-            color: var(--accent-color);
-        }
-
-        .flags {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .flags img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s;
-        }
-        
-        .flags img:hover { transform: scale(1.2); }
-
-        .badge {
+        .tag-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--accent-color);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 20px;
+            background: #ffeaa7;
+            color: #d63031;
+            padding: 6px 14px;
+            border-radius: 50px;
             font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .plan-name {
+            font-size: 1.2rem;
             font-weight: 700;
-            box-shadow: 0 0 10px var(--accent-color);
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 20px 0;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #b2bec3;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-right: 10px;
+        }
+
+        .card-features {
+            margin: 25px 0 35px;
+            width: 100%;
+        }
+
+        .card-features li {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 0.95rem;
+        }
+
+        .card-features li i {
+            color: #00b894;
+            /* Green check */
+            margin-left: 10px;
+            font-size: 1.1rem;
+        }
+
+        .flag-row {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .flag-row img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* --- Footer --- */
         footer {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 40px 20px;
             text-align: center;
+            padding: 50px 0;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 50px;
-            background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
         }
 
-        /* --- Animations --- */
+        /* --- Keyframe Animations --- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* --- Mobile --- */
+        /* --- Responsive Tweaks --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .pricing-card.popular { transform: scale(1); }
-            .pricing-card.popular:hover { transform: translateY(-10px); }
-            .hero p { padding: 0 10px; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+
+            .pricing-card.highlight {
+                transform: scale(1);
+            }
+
+            .glass-panel {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Animated Background Background -->
-    <div class="bg-animation">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+    <!-- Background Decoration -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-    <!-- Navigation -->
     <div class="container">
-        <header>
-            <div class="logo">
-                <img src="logo.png" alt="Logo" class="brand-logo">
-            </div>
-            <!-- Simple Nav could go here if needed -->
-        </header>
+
+        <!-- Header is minimal/absent as logo is removed -->
+        <header style="padding: 20px 0;"></header>
 
         <!-- Hero Section -->
         <section class="hero">
-            <h1>دنیایی بدون مرز، <br> سرعتی بی نهایت</h1>
+            <h1>دنیای اینترنت، <br> <span style="color: #0984e3;">بدون مرز و محدودیت</span></h1>
             <p>
-                تجربه‌ای متفاوت از اینترنت آزاد و ایمن. دسترسی به تمام محتوای جهانی با بالاترین سرعت و پایداری. بدون قطعی، بدون محدودیت.
+                تجربه‌ای متفاوت از سرعت، امنیت و پایداری. دسترسی آزاد به تمامی محتوای جهانی با یک کلیک.
             </p>
             <div class="cta-group">
-                <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-glow">
-                    <i class="fab fa-telegram-plane"></i>
+                <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-primary">
+                    <i class="fab fa-telegram-plane" style="margin-left:8px;"></i>
                     شروع رایگان
                 </a>
-                <a href="#plans" class="btn btn-primary">
-                    مشاهده پلن‌ها
+                <a href="#plans" class="btn btn-secondary">
+                    مشاهده سرویس‌ها
                 </a>
             </div>
         </section>
 
-        <!-- Value Proposition -->
+        <!-- Features -->
         <div class="features-grid">
-            <div class="glass-card">
-                <div class="card-icon"><i class="fas fa-rocket"></i></div>
-                <h3>سرعت نور</h3>
-                <p>استفاده از سرورهای اختصاصی و تکنولوژی‌های مدرن برای کمترین پینگ و بالاترین پهنای باند.</p>
+            <div class="glass-panel feature-item">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>سرعت فوق‌العاده</h3>
+                <p>اتصال به سرورهای قدرتمند و بهینه برای تجربه‌ای بدون وقفه و با کمترین پینگ ممکن.</p>
             </div>
-            <div class="glass-card">
-                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>امنیت حداکثری</h3>
-                <p>تمامی داده‌های شما رمزنگاری شده و حریم خصوصی شما اولویت اصلی ماست.</p>
+            <div class="glass-panel feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>امنیت تضمین شده</h3>
+                <p>رمزنگاری پیشرفته اطلاعات شما برای حفظ حریم خصوصی در فضای آنلاین.</p>
             </div>
-            <div class="glass-card">
-                <div class="card-icon"><i class="fas fa-globe"></i></div>
+            <div class="glass-panel feature-item">
+                <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
                 <h3>دسترسی جهانی</h3>
-                <p>اتصال به سرورهای قدرتمند در کشورهای مختلف برای دسترسی به محتوای محلی و جهانی.</p>
+                <p>بدون هیچ محدودیتی به سرویس‌های بین‌المللی و محتوای مورد علاقه خود دسترسی داشته باشید.</p>
             </div>
         </div>
 
         <!-- Pricing Section -->
         <section id="plans">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>پلن‌های اشتراک ویژه</h2>
-                <p>بهترین گزینه را برای خود انتخاب کنید</p>
+                <p>انتخابی هوشمندانه برای استفاده نامحدود</p>
             </div>
 
-            <div class="pricing-container">
+            <div class="pricing-grid">
+
                 <!-- Standard Plan -->
-                <div class="pricing-card">
-                    <span class="plan-duration">سرویس VIP ۱ ماهه</span>
-                    <div class="plan-price">
-                        <span class="old-price">۲۵۰</span>
-                        ۱۲۵ <span style="font-size: 1rem; font-weight: 400; color:var(--text-muted)">هزار تومان</span>
+                <div class="glass-panel pricing-card">
+                    <span class="plan-name">سرویس VIP یک ماهه</span>
+                    <div class="price">
+                        ۱۲۵ <small>هزار تومان</small>
                     </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> اتصال نامحدود و پایدار</li>
+                    <div style="margin-bottom:20px; color:#b2bec3; font-size:0.9rem;">
+                        <span class="old-price">۲۵۰</span> ۵۰٪ تخفیف
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> <b>ترافیک نامحدود</b></li>
                         <li><i class="fas fa-check"></i> ۲ کاربر همزمان</li>
-                        <li><i class="fas fa-check"></i> پشتیبانی ۲۴ ساعته</li>
+                        <li><i class="fas fa-check"></i> سازگار با همه اپراتورها</li>
+                        <li><i class="fas fa-check"></i> پشتیبانی آنلاین</li>
                     </ul>
-                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-primary" style="width:100%; justify-content:center;">خرید آنلاین</a>
+                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-secondary"
+                        style="width:100%; text-align:center;">خرید آنلاین</a>
                 </div>
 
                 <!-- Popular Plan -->
-                <div class="pricing-card popular">
-                    <div class="badge">پیشنهاد ویژه</div>
-                    <span class="plan-duration">سرویس VIP ۳ ماهه</span>
-                    <div class="plan-price">
-                        <span class="old-price">۶۰۰</span>
-                        ۳۰۰ <span style="font-size: 1rem; font-weight: 400; color:var(--text-muted)">هزار تومان</span>
+                <div class="glass-panel pricing-card highlight">
+                    <div class="tag-badge">پیشنهاد ویژه</div>
+                    <span class="plan-name">سرویس VIP سه ماهه</span>
+                    <div class="price">
+                        ۳۰۰ <small>هزار تومان</small>
                     </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> <b>تخفیف ویژه زمانی</b></li>
-                        <li><i class="fas fa-check"></i> اتصال به تمام لوکیشن‌ها</li>
+                    <div style="margin-bottom:20px; color:#b2bec3; font-size:0.9rem;">
+                        <span class="old-price">۶۰۰</span> ۵۰٪ تخفیف
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> <b>ترافیک نامحدود</b></li>
                         <li><i class="fas fa-check"></i> ۲ کاربر همزمان</li>
-                        <li><i class="fas fa-check"></i> حجم نامحدود</li>
+                        <li><i class="fas fa-check"></i> سرعت و پایداری بالا</li>
+                        <li><i class="fas fa-check"></i> پشتیبانی ویژه</li>
                     </ul>
-                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-glow" style="width:100%; justify-content:center;">خرید با تخفیف</a>
+                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-primary"
+                        style="width:100%; text-align:center;">خرید با تخفیف</a>
                 </div>
-            </div>
 
-            <!-- Static IP Section -->
-             <div class="section-title">
-                <h2>سرویس‌های اختصاصی (Static IP)</h2>
-                <p>مناسب برای ترید و کارهای حساس بانکی</p>
-            </div>
-
-            <div class="pricing-container">
-                <div class="pricing-card">
-                    <span class="plan-duration">۱ ماهه - اختصاصی</span>
-                    <div class="flags">
+                <!-- Static IP -->
+                <div class="glass-panel pricing-card">
+                    <span class="plan-name">سرویس اختصاصی (Static)</span>
+                    <div class="flag-row">
                         <img src="germany.png" alt="DE">
                         <img src="france.png" alt="FR">
                         <img src="turkey.png" alt="TR">
                         <img src="usa.png" alt="US">
                     </div>
-                    <div class="plan-price">
-                        <span class="old-price">۳۵۰</span>
-                        ۱۷۵ <span style="font-size: 1rem; font-weight: 400; color:var(--text-muted)">هزار تومان</span>
+                    <div class="price">
+                        ۱۷۵ <small>هزار تومان</small>
                     </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> آی‌پی ثابت و اختصاصی</li>
-                        <li><i class="fas fa-check"></i> مناسب برای بایننس و صرافی‌ها</li>
-                        <li><i class="fas fa-check"></i> کیل سوییچ امنیتی</li>
+                    <div style="margin-bottom:20px; color:#b2bec3; font-size:0.9rem;">
+                        شروع قیمت از
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> <b>آی‌پی ثابت و اختصاصی</b></li>
+                        <li><i class="fas fa-check"></i> مناسب ترید و صرافی</li>
+                        <li><i class="fas fa-check"></i> امنیت بسیار بالا</li>
+                        <li><i class="fas fa-check"></i> کیل‌سوییچ (Kill-Switch)</li>
                     </ul>
-                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-primary" style="width:100%; justify-content:center;">سفارش دهید</a>
+                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-secondary"
+                        style="width:100%; text-align:center;">سفارش دهید</a>
                 </div>
 
-                <div class="pricing-card">
-                    <div class="badge">محبوب تریدرها</div>
-                    <span class="plan-duration">۳ ماهه - اختصاصی</span>
-                    <div class="flags">
-                        <img src="germany.png" alt="DE">
-                        <img src="france.png" alt="FR">
-                        <img src="turkey.png" alt="TR">
-                        <img src="usa.png" alt="US">
-                    </div>
-                    <div class="plan-price">
-                         <span class="old-price">۸۵۰</span>
-                        ۴۲۵ <span style="font-size: 1rem; font-weight: 400; color:var(--text-muted)">هزار تومان</span>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> پایداری بسیار بالا</li>
-                        <li><i class="fas fa-check"></i> سرعت تضمین شده</li>
-                        <li><i class="fas fa-check"></i> پشتیبانی VIP</li>
-                    </ul>
-                    <a href="https://t.me/vpnlikebot?start=ga" class="btn btn-primary" style="width:100%; justify-content:center;">سفارش دهید</a>
-                </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
-            <p>تمامی حقوق محفوظ است. طراحی و توسعه برای دسترسی آزاد.</p>
-            <p style="margin-top: 10px; opacity: 0.6; font-size: 0.8rem;">ارتباط با ما از طریق تلگرام</p>
+            <p>© تمامی حقوق محفوظ است.</p>
+            <p style="margin-top:10px; font-size:0.85rem;">طراحی شده برای دسترسی آزاد و امن به اینترنت</p>
         </footer>
+
     </div>
 
 </body>
+
 </html>
