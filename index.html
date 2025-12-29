@@ -472,6 +472,55 @@
             transform: translateY(-2px);
         }
 
+        /* Hero Buttons specific styles */
+        .hero-btns-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-hero {
+            padding: 12px 25px;
+            border-radius: 15px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-h-blue {
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+            box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
+        }
+
+        .btn-h-purple {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-h-green {
+            background: linear-gradient(135deg, #00b894, #55efc4);
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .btn-h-orange {
+            background: linear-gradient(135deg, #e17055, #ff7675);
+            box-shadow: 0 4px 15px rgba(225, 112, 85, 0.3);
+        }
+
         /* --- Animations --- */
         @keyframes slideDown {
             from {
@@ -533,10 +582,18 @@
         <header class="hero">
             <h1>تجربه‌ای <span style="color:#0984e3">بی‌نظیر</span> از سرعت</h1>
             <p>سرویس‌های اختصاصی برای دسترسی امن، پایدار و بدون قطعی به شبکه جهانی.</p>
+
+            <div class="hero-btns-grid">
+                <a href="#pricing" class="btn-hero btn-h-blue">خرید اشتراک عادی ←</a>
+                <a href="#private-ip" class="btn-hero btn-h-purple">خرید آی پی ثابت ←</a>
+                <a href="https://t.me/vpnlikebot?start=ga" target="_blank" class="btn-hero btn-h-green">تست رایگان ←</a>
+                <a href="https://t.me/vpnlikebot?start=ga" target="_blank" class="btn-hero btn-h-orange">🎁 گردونه شانس
+                    ←</a>
+            </div>
         </header>
 
         <!-- VIP Section -->
-        <section>
+        <section id="pricing">
             <div class="section-title">
                 <h2>سرویس‌های VIP (معمولی)</h2>
                 <p>پرسرعت و اقتصادی برای استفاده روزمره</p>
@@ -581,7 +638,7 @@
         </section>
 
         <!-- Private Section -->
-        <section>
+        <section id="private-ip">
             <div class="section-title">
                 <h2>سرویس‌های Private (آی‌پی ثابت)</h2>
                 <p>سرویس اختصاصی با بالاترین کیفیت</p>
